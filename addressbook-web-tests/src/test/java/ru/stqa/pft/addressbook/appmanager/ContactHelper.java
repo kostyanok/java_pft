@@ -28,10 +28,6 @@ public class ContactHelper extends BaseHelper {
     type(By.name("email2"),contactData.getEmail2());
   }
 
-  public void goToAddNewPage() {
-    click(By.linkText("add new"));
-  }
-
   public void contactSelection() {
       click(By.xpath("//div/div[4]/form[2]/table/tbody/tr[2]/td[1]/input"));
   }

@@ -31,4 +31,12 @@ public class ContactHelper extends BaseHelper {
   public void goToAddNewPage() {
     click(By.linkText("add new"));
   }
+
+  public void contactSelection() {
+      click(By.xpath("//div/div[4]/form[2]/table/tbody/tr[2]/td[1]/input"));
+  }
+  public void deleteSelectedContact() {
+    click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
+  }
+
 }

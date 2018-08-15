@@ -28,4 +28,7 @@ public class BaseHelper {
       return false;
     }
   }
+  public void closeAlert(){
+    wd.switchTo().alert().accept();
+  }
 }

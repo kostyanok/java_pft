@@ -10,15 +10,11 @@ public class ContactHelper extends BaseHelper {
     super(wd);
   }
 
-  public void returnToHomePage() {
-    click(By.linkText("home page"));
-  }
-
   public void submitNewContactCreation() {
     click(By.xpath("//div[@id='content']/form/input[21]"));
   }
 
-  public void fillNewContactForm(ContactData contactData) {
+  public void fillContactForm(ContactData contactData) {
     type(By.name("firstname"),contactData.getFirstname());
     type(By.name("lastname"),contactData.getLastname());
     type(By.name("address"),contactData.getAddress());
@@ -35,4 +31,11 @@ public class ContactHelper extends BaseHelper {
     click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
   }
 
+  public void initContactModification() {
+    click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+  }
+
+  public void submitContactModification() {
+    click(By.xpath("//div[@id='content']/form[1]/input[22]"));
+  }
 }

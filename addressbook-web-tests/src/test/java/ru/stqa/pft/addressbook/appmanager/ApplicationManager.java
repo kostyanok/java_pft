@@ -23,7 +23,6 @@ public class ApplicationManager {
   }
 
   public void init() {
-    String browser = BrowserType.FIREFOX;
     if(browser.equals(BrowserType.FIREFOX)){
       wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
     }else if (browser.equals(BrowserType.CHROME)) {

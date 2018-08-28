@@ -9,8 +9,26 @@ public class NavigationHelper extends BaseHelper {
     super(wd);
   }
 
-  public void goToPage(By locator) {
-    click(locator);
-
+  public void goToGroupPage() {
+    if (isElementPresent(By.tagName("h1"))
+      && wd.findElement(By.tagName("h1")).equals("Groups")
+      && isElementPresent(By.name("new"))){
+      return;
+    }
+    click(By.linkText("groups"));
+  }
+  public void goToHomePage() {
+    if (isElementPresent(By.id("maintable"))){
+      return;
+    }
+    click(By.linkText("home"));
+  }
+  public void goToAddContact() {
+    if (isElementPresent(By.tagName("h1"))
+            && wd.findElement(By.tagName("h1")).equals("Edit / add address book entry")
+            && isElementPresent(By.name("submit"))){
+      return;
+    }
+    click(By.linkText("add new"));
   }
 }

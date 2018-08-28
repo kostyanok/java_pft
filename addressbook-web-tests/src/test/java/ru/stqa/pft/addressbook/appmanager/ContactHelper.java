@@ -8,6 +8,7 @@ import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 
 public class ContactHelper extends BaseHelper {
+  NavigationHelper navigationHelper = new NavigationHelper(wd);
 
   public ContactHelper(WebDriver wd) {
     super(wd);
@@ -45,5 +46,16 @@ public class ContactHelper extends BaseHelper {
 
   public void submitContactModification() {
     click(By.xpath("//div[@id='content']/form[1]/input[22]"));
+  }
+
+  public void createContact(ContactData contactData, boolean b) {
+    navigationHelper.goToAddContact();
+    fillContactForm(contactData,b);
+    submitNewContactCreation();
+    navigationHelper.goToHomePage();
+  }
+
+  public boolean isThereAContact() {
+    return isElementPresent(By.xpath("//div/div[4]/form[2]/table/tbody/tr[2]/td[1]/input"));
   }
 }

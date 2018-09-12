@@ -1,5 +1,12 @@
 package ru.stqa.pft.addressbook.model;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 public class ContactData {
   private final String firstname;
   private final String lastname;
@@ -9,8 +16,10 @@ public class ContactData {
   private final String email;
   private final String email2;
   private String group;
+  private int id;
 
   public ContactData(String firstname, String lastname, String address, String homePhoneNumber, String mobilePhoneNumber, String email, String email2, String group) {
+    this.id = 0;
     this.firstname = firstname;
     this.lastname = lastname;
     this.address = address;
@@ -19,6 +28,48 @@ public class ContactData {
     this.email = email;
     this.email2 = email2;
     this.group = group;
+  }
+  public ContactData(int id, String firstname, String lastname, String address, String homePhoneNumber, String mobilePhoneNumber, String email, String email2, String group) {
+    this.id  = id;
+    this.firstname = firstname;
+    this.lastname = lastname;
+    this.address = address;
+    this.homePhoneNumber = homePhoneNumber;
+    this.mobilePhoneNumber = mobilePhoneNumber;
+    this.email = email;
+    this.email2 = email2;
+    this.group = group;
+  }
+  public int getId() {
+    return id;
+  }
+
+  @Override
+  public String toString() {
+    return "ContactData{" +
+            "firstname='" + firstname + '\'' +
+            ", lastname='" + lastname + '\'' +
+            ", id=" + id +
+            '}';
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    ContactData that = (ContactData) o;
+    return id == that.id &&
+            Objects.equals(firstname, that.firstname) &&
+            Objects.equals(lastname, that.lastname);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(firstname, lastname, id);
+  }
+
+  public void setId(int id) {
+    this.id = id;
   }
 
   public String getFirstname() {
@@ -52,4 +103,5 @@ public class ContactData {
   public String getGroup() {
     return group;
   }
+
 }

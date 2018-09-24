@@ -82,7 +82,7 @@ public class ContactHelper extends BaseHelper {
     return isElementPresent(By.xpath("//div/div[4]/form[2]/table/tbody/tr[2]/td[1]/input"));
   }
 
-  public int getContactsCount() {
+  public int count() {
     return wd.findElements(By.name("selected[]")).size();
   }
 

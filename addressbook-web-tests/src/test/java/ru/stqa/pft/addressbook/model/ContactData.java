@@ -5,11 +5,17 @@ import java.util.Objects;
 public class ContactData {
   private String firstname;
   private String lastname;
-  private String address;
+  private String address1;
+  private String address2;
+  private String allPhones;
+  private String allEmails;
+  private String allAddresses;
   private String homePhoneNumber;
   private String mobilePhoneNumber;
+  private String workPhoneNumber;
   private String email;
   private String email2;
+  private String email3;
   private String group;
   private int id = Integer.MAX_VALUE;
 
@@ -46,6 +52,11 @@ public class ContactData {
     return this;
   }
 
+  public String getWorkPhoneNumber() {
+    return workPhoneNumber;
+  }
+
+
   public String getFirstname() {
     return firstname;
   }
@@ -54,8 +65,8 @@ public class ContactData {
     return lastname;
   }
 
-  public String getAddress() {
-    return address;
+  public String getAddress1() {
+    return address1;
   }
 
   public String getHomePhoneNumber() {
@@ -78,18 +89,44 @@ public class ContactData {
     return group;
   }
 
+  public String getAllPhones() {
+    return allPhones;
+  }
+
+  public String getEmail3() {
+    return email3;
+  }
+
+  public String getAllEmails() {
+    return allEmails;
+  }
+
+  public String getAddress2() {
+    return address2;
+  }
+
+  public String getAllAddresses() {
+    return allAddresses;
+  }
+
   public ContactData withFirstname(String firstname) {
     this.firstname = firstname;
     return this;
   }
+
+  public ContactData withWorkPhoneNumber(String workPhoneNumber) {
+    this.workPhoneNumber = workPhoneNumber;
+    return this;
+  }
+
 
   public ContactData withLastname(String lastname) {
     this.lastname = lastname;
     return this;
   }
 
-  public ContactData withAddress(String address) {
-    this.address = address;
+  public ContactData withAddress1(String address1) {
+    this.address1 = address1;
     return this;
   }
 
@@ -115,6 +152,31 @@ public class ContactData {
 
   public ContactData withGroup(String group) {
     this.group = group;
+    return this;
+  }
+
+  public ContactData withAllPhones(String allPhones) {
+    this.allPhones = allPhones;
+    return this;
+  }
+
+  public ContactData withEmail3(String email3) {
+    this.email3 = email3;
+    return this;
+  }
+
+  public ContactData withAllEmails(String allEmails) {
+    this.allEmails = allEmails;
+    return this;
+  }
+
+  public ContactData withAddress2(String address2) {
+    this.address2 = address2;
+    return this;
+  }
+
+  public ContactData withAllAddresses(String allAddresses) {
+    this.allAddresses = allAddresses;
     return this;
   }
 }

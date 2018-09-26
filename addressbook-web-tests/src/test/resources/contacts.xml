@@ -1,0 +1,20 @@
+<list>
+  <contact>
+    <firstname>firstname 0</firstname>
+    <lastname>lastname 0</lastname>
+    <mobilePhoneNumber>+380999930170</mobilePhoneNumber>
+    <email>test0@gmail.com</email>
+  </contact>
+  <contact>
+    <firstname>firstname 1</firstname>
+    <lastname>lastname 1</lastname>
+    <mobilePhoneNumber>+380999930171</mobilePhoneNumber>
+    <email>test1@gmail.com</email>
+  </contact>
+  <contact>
+    <firstname>firstname 2</firstname>
+    <lastname>lastname 2</lastname>
+    <mobilePhoneNumber>+380999930172</mobilePhoneNumber>
+    <email>test2@gmail.com</email>
+  </contact>
+</list>

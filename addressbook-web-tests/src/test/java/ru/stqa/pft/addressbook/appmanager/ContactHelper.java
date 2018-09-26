@@ -31,15 +31,11 @@ public class ContactHelper extends BaseHelper {
     type(By.name("email"), contactData.getEmail());
     type(By.name("email2"), contactData.getEmail2());
     attach(By.name("photo"), contactData.getPhoto());
-    if (creation) {
-      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
-    } else {
-      Assert.assertFalse(isElementPresent(By.name("new_group")));
-    }
+   if (creation) {
+     new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+   } else {
+    Assert.assertFalse(isElementPresent(By.name("new_group")));
   }
-
-  public void contactSelection(int index) {
-    wd.findElements(By.name("selected[]")).get(index).click();
   }
 
   public void contactSelectionById(int id) {
@@ -63,8 +59,8 @@ public class ContactHelper extends BaseHelper {
     navigationHelper.goToAddContact();
     fillContactForm(contactData, b);
     submitNewContactCreation();
-    navigationHelper.HomePage();
     contactCache = null;
+    navigationHelper.HomePage();
   }
 
   public void modify(ContactData contact) {

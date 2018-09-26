@@ -3,18 +3,32 @@
     "firstname": "firstname 0",
     "lastname": "lastname 0",
     "mobilePhoneNumber": "+380999930170",
-    "email": "test0@gmail.com"
+    "email": "test0@gmail.com",
+    "group": "test1",
+    "photo": "src/test/resources/cropped-brave_icon_512x.png"
   },
   {
     "firstname": "firstname 1",
     "lastname": "lastname 1",
     "mobilePhoneNumber": "+380999930171",
-    "email": "test1@gmail.com"
+    "email": "test1@gmail.com",
+    "group": "test1",
+    "photo": "src/test/resources/cropped-brave_icon_512x.png"
   },
   {
     "firstname": "firstname 2",
     "lastname": "lastname 2",
     "mobilePhoneNumber": "+380999930172",
-    "email": "test2@gmail.com"
+    "email": "test2@gmail.com",
+    "group": "test1",
+    "photo": "src/test/resources/cropped-brave_icon_512x.png"
+  },
+  {
+    "firstname": "firstname 3",
+    "lastname": "lastname 3",
+    "mobilePhoneNumber": "+380999930173",
+    "email": "test3@gmail.com",
+    "group": "test1",
+    "photo": "src/test/resources/cropped-brave_icon_512x.png"
   }
 ]

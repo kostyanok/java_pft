@@ -72,16 +72,18 @@ public class ContactDataGenerator {
     Writer writer = new FileWriter(file);
     for (ContactData contact : contacts){
       writer.write(String.format("%s;%s;%s\n", contact.getFirstname(),contact.getLastname(),
-              contact.getMobilePhoneNumber(),contact.getEmail()));
+              contact.getMobilePhoneNumber(),contact.getEmail(), contact.getPhoto()));
     }
     writer.close();
   }
 
   private List<ContactData> generateContacts(int count) {
     List <ContactData> contacts = new ArrayList<>();
+    //File photo = new File ("src/test/resources/cropped-brave_icon_512x.png");
     for (int i = 0; i < count; i++){
       contacts.add(new ContactData().withFirstname(String.format("firstname %s", i)).withLastname(String.format("lastname %s", i))
-              .withMobilePhoneNumber(String.format("+38099993017%s",i)).withEmail(String.format("test%s@gmail.com", i)));
+              .withMobilePhoneNumber(String.format("+38099993017%s",i)).withEmail(String.format("test%s@gmail.com", i))
+              .withPhoto("src/test/resources/cropped-brave_icon_512x.png").withGroup("test1"));
     }
     return contacts;
   }

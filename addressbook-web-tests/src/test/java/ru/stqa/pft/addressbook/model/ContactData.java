@@ -26,8 +26,10 @@ public class ContactData {
   private String email;
   private String email2;
   private String email3;
+  @Expose
   private String group;
-  private File photo;
+  @Expose
+  private String photo;
   @XStreamOmitField
   private int id = Integer.MAX_VALUE;
 
@@ -121,7 +123,11 @@ public class ContactData {
     return allAddresses;
   }
   public File getPhoto() {
-    return photo;
+    if (photo != null)
+    {
+      return new File (photo);
+    }else
+    return null;
   }
 
 
@@ -196,7 +202,7 @@ public class ContactData {
     return this;
   }
 
-  public ContactData withPhoto(File photo) {
+  public ContactData withPhoto(String photo) {
     this.photo = photo;
     return this;
   }

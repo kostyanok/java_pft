@@ -14,21 +14,5 @@
     "email": "test1@gmail.com",
     "group": "test1",
     "photo": "src/test/resources/cropped-brave_icon_512x.png"
-  },
-  {
-    "firstname": "firstname 2",
-    "lastname": "lastname 2",
-    "mobilePhoneNumber": "+380999930172",
-    "email": "test2@gmail.com",
-    "group": "test1",
-    "photo": "src/test/resources/cropped-brave_icon_512x.png"
-  },
-  {
-    "firstname": "firstname 3",
-    "lastname": "lastname 3",
-    "mobilePhoneNumber": "+380999930173",
-    "email": "test3@gmail.com",
-    "group": "test1",
-    "photo": "src/test/resources/cropped-brave_icon_512x.png"
   }
 ]

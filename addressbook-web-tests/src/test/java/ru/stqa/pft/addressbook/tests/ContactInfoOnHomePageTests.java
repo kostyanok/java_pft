@@ -25,9 +25,6 @@ public class ContactInfoOnHomePageTests extends TestBase {
   public void testContactPhones() {
 
     assertThat(contact.getAllPhones(), equalTo(mergePhones(contactInfoFromEditForm)));
-    //assertThat(contact.getHomePhoneNumber(), equalTo(cleaned(contactInfoFromEditForm.getHomePhoneNumber())));
-    //assertThat(contact.getMobilePhoneNumber(), equalTo(cleaned(contactInfoFromEditForm.getMobilePhoneNumber())));
-    //assertThat(contact.getWorkPhoneNumber(), equalTo(cleaned(contactInfoFromEditForm.getWorkPhoneNumber())));
   }
 
   @Test

@@ -3,7 +3,6 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
@@ -25,14 +24,14 @@ public class ContactHelper extends BaseHelper {
   public void fillContactForm(ContactData contactData, boolean creation) {
     type(By.name("firstname"), contactData.getFirstname());
     type(By.name("lastname"), contactData.getLastname());
-    type(By.name("address"), contactData.getAddress1());
-    type(By.name("home"), contactData.getAddress1());
+    type(By.name("address"), contactData.getAddress());
+    type(By.name("home"), contactData.getAddress());
     type(By.name("mobile"), contactData.getMobilePhoneNumber());
     type(By.name("email"), contactData.getEmail());
     type(By.name("email2"), contactData.getEmail2());
-    attach(By.name("photo"), contactData.getPhoto());
+    //attach(By.name("photo"), contactData.getPhoto());
    if (creation) {
-     new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+    // new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
    } else {
     Assert.assertFalse(isElementPresent(By.name("new_group")));
   }
@@ -113,8 +112,8 @@ public class ContactHelper extends BaseHelper {
       String allPhones = element.findElement(By.xpath(".//td[6]")).getText();
       String allEmails = element.findElement(By.xpath(".//td[5]")).getText();
       String allAddresses = element.findElement(By.xpath(".//td[4]")).getText();
-      ContactData contact = new ContactData().withId(id).withFirstname(firstname).withLastname(lastname)
-              .withAllPhones(allPhones).withAllEmails(allEmails).withAllAddresses(allAddresses);
+      ContactData contact = new ContactData().withId(id).withFirstname(firstname).withLastname(lastname);
+            //  .withAllPhones(allPhones).withAllEmails(allEmails).withAllAddresses(allAddresses);
       //String[] phones = element.findElement(By.xpath(".//td[6]")).getText().split("\n");
       //ContactData contact = new ContactData().withId(id).withFirstname(firstname).withLastname(lastname)
       //         .withHomePhoneNumber(phones[0]).withMobilePhoneNumber(phones[1]).withWorkPhoneNumber(phones[2]);
@@ -138,7 +137,7 @@ public class ContactHelper extends BaseHelper {
     wd.navigate().back();
     return new ContactData().withId(contact.getId()).withFirstname(firstname).withLastname(lastname)
             .withMobilePhoneNumber(mobile).withHomePhoneNumber(home).withWorkPhoneNumber(work).withEmail(email)
-            .withEmail2(email2).withEmail3(email3).withAddress1(address1).withAddress2(address2);
+            .withEmail2(email2).withAddress1(address1);
 
   }
 }

@@ -2,17 +2,21 @@
   {
     "firstname": "firstname 0",
     "lastname": "lastname 0",
+    "address": "address 0",
+    "homePhoneNumber": "+3801919",
     "mobilePhoneNumber": "+380999930170",
+    "workPhoneNumber": "+201111111",
     "email": "test0@gmail.com",
-    "group": "test1",
-    "photo": "src/test/resources/cropped-brave_icon_512x.png"
+    "email2": "test0@gmail.com"
   },
   {
     "firstname": "firstname 1",
     "lastname": "lastname 1",
+    "address": "address 1",
+    "homePhoneNumber": "+3801919",
     "mobilePhoneNumber": "+380999930171",
+    "workPhoneNumber": "+201111111",
     "email": "test1@gmail.com",
-    "group": "test1",
-    "photo": "src/test/resources/cropped-brave_icon_512x.png"
+    "email2": "test1@gmail.com"
   }
 ]

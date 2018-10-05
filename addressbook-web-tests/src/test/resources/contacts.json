@@ -7,7 +7,8 @@
     "mobilePhoneNumber": "+380999930170",
     "workPhoneNumber": "+201111111",
     "email": "test0@gmail.com",
-    "email2": "test0@gmail.com"
+    "email2": "test0@gmail.com",
+    "photo": "src/test/resources/cropped-brave_icon_512x.png"
   },
   {
     "firstname": "firstname 1",
@@ -17,6 +18,7 @@
     "mobilePhoneNumber": "+380999930171",
     "workPhoneNumber": "+201111111",
     "email": "test1@gmail.com",
-    "email2": "test1@gmail.com"
+    "email2": "test1@gmail.com",
+    "photo": "src/test/resources/cropped-brave_icon_512x.png"
   }
 ]

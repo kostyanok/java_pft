@@ -4,7 +4,7 @@
     <lastname>lastname 0</lastname>
     <mobilePhoneNumber>+380999930170</mobilePhoneNumber>
     <email>test0@gmail.com</email>
-    <group>test1</group>
+    <group>test2</group>
     <photo>src/test/resources/cropped-brave_icon_512x.png</photo>
   </contact>
   <contact>
@@ -12,7 +12,7 @@
     <lastname>lastname 1</lastname>
     <mobilePhoneNumber>+380999930171</mobilePhoneNumber>
     <email>test1@gmail.com</email>
-    <group>test1</group>
+    <group>test2</group>
     <photo>src/test/resources/cropped-brave_icon_512x.png</photo>
   </contact>
   <contact>
@@ -28,7 +28,7 @@
     <lastname>lastname 3</lastname>
     <mobilePhoneNumber>+380999930173</mobilePhoneNumber>
     <email>test3@gmail.com</email>
-    <group>test1</group>
+    <group>test2</group>
     <photo>src/test/resources/cropped-brave_icon_512x.png</photo>
   </contact>
 </list>

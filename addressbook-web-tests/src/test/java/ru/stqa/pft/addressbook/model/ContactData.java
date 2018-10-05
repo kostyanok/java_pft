@@ -74,6 +74,27 @@ public class ContactData {
             '}';
   }
 
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    ContactData that = (ContactData) o;
+    return id == that.id &&
+            Objects.equals(firstname, that.firstname) &&
+            Objects.equals(lastname, that.lastname) &&
+            Objects.equals(address, that.address) &&
+            Objects.equals(homePhoneNumber, that.homePhoneNumber) &&
+            Objects.equals(mobilePhoneNumber, that.mobilePhoneNumber) &&
+            Objects.equals(workPhoneNumber, that.workPhoneNumber) &&
+            Objects.equals(email, that.email) &&
+            Objects.equals(email2, that.email2);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, firstname, lastname, address, homePhoneNumber, mobilePhoneNumber, workPhoneNumber, email, email2);
+  }
+
   public int getId() {
     return id;
   }
@@ -198,27 +219,6 @@ public class ContactData {
     return groups;
   }
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    ContactData that = (ContactData) o;
-    return id == that.id &&
-            Objects.equals(firstname, that.firstname) &&
-            Objects.equals(lastname, that.lastname) &&
-            Objects.equals(address, that.address) &&
-            Objects.equals(homePhoneNumber, that.homePhoneNumber) &&
-            Objects.equals(mobilePhoneNumber, that.mobilePhoneNumber) &&
-            Objects.equals(workPhoneNumber, that.workPhoneNumber) &&
-            Objects.equals(email, that.email) &&
-            Objects.equals(email2, that.email2);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(id, firstname, lastname, address, homePhoneNumber, mobilePhoneNumber, workPhoneNumber, email, email2);
-  }
-
   public ContactData withPhoto(String photo) {
     this.photo = photo;
     return this;
@@ -226,6 +226,10 @@ public class ContactData {
 
   public ContactData inGroup(GroupData group) {
     groups.add(group);
+    return this;
+  }
+  public ContactData fromGroup(GroupData group) {
+    groups.remove(group);
     return this;
   }
 

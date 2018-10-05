@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
+import ru.stqa.pft.addressbook.model.Groups;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,6 +60,7 @@ public class ContactHelper extends BaseHelper {
     click(By.xpath("//div[@id='content']/form[1]/input[22]"));
   }
 
+
   public ContactData create(ContactData contactData, boolean b) {
     navigationHelper.goToAddContact();
     fillContactForm(contactData, b);
@@ -80,6 +82,27 @@ public class ContactHelper extends BaseHelper {
     deleteSelectedContact();
     contactCache = null;
     closeAlert();
+  }
+  public void addToGroup(ContactData contact) {
+    downloadAllContacts();
+    contactSelectionById(contact.getId());
+    new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(contact.getGroups().iterator().next().getName());
+    click(By.name("add"));
+    contactCache = null;
+  }
+  public void removeFromGroup(ContactData contact, Groups groups) {
+    new Select(wd.findElement(By.name("group"))).selectByVisibleText(groups.iterator().next().getName());
+    if (!isThereAContact()) {
+      addToGroup(contact);
+      wd.findElement(By.xpath("//a[@href='./?group=" + groups.iterator().next().getId() + "']" )).click();
+    }
+    contactSelectionById(contact.getId());
+    click(By.name("remove"));
+    contactCache = null;
+  }
+  public void downloadAllContacts() {
+
+    new Select(wd.findElement(By.name("group"))).selectByVisibleText("[all]");
   }
 
   public boolean isThereAContact() {

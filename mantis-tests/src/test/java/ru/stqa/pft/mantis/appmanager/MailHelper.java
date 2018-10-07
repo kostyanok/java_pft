@@ -24,7 +24,7 @@ public class MailHelper {
         long start = System.currentTimeMillis();
         while (System.currentTimeMillis() < start + timeout){
             if(wiser.getMessages().size() >= count){
-                return wiser.getMessages().stream().map((m) -> toModelMil(m)).collect(Collectors.toList());
+                return wiser.getMessages().stream().map((m) -> toModelMail(m)).collect(Collectors.toList());
             }
             try{
                 Thread.sleep(1000);
@@ -35,7 +35,7 @@ public class MailHelper {
         throw new Error ("No mail :(*");
     }
 
-    public static MailMessage toModelMil(WiserMessage m){
+    public static MailMessage toModelMail(WiserMessage m){
         try{
             MimeMessage mm = m.getMimeMessage();
             return new MailMessage (mm.getAllRecipients()[0].toString(), (String) mm.getContent());

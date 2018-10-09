@@ -27,7 +27,7 @@ public class ApplicationManager {
   private ContactHelper contactHelper;
   private DbHelper dbHelper;
 
-  public ApplicationManager(String browser){
+  public ApplicationManager(String browser) {
     this.browser = browser;
     properties = new Properties();
   }
@@ -37,7 +37,7 @@ public class ApplicationManager {
     properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
     dbHelper = new DbHelper();
 
-    if("".equals(properties.getProperty("selenium.server"))) {
+    if ("".equals(properties.getProperty("selenium.server"))) {
       if (browser.equals(BrowserType.FIREFOX)) {
         wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
       } else if (browser.equals(BrowserType.CHROME)) {
@@ -45,7 +45,7 @@ public class ApplicationManager {
       } else if (browser.equals(BrowserType.IEXPLORE)) {
         wd = new InternetExplorerDriver();
       }
-    }else{
+    } else {
       DesiredCapabilities capabilities = new DesiredCapabilities();
       capabilities.setBrowserName(browser);
       wd = new RemoteWebDriver(new URL(properties.getProperty("selenium.server")), capabilities);
@@ -68,13 +68,16 @@ public class ApplicationManager {
   public GroupHelper group() {
     return groupHelper;
   }
+
   public ContactHelper contact() {
     return contactHelper;
   }
+
   public NavigationHelper goTo() {
     return navigationHelper;
   }
-  public DbHelper db(){
+
+  public DbHelper db() {
     return dbHelper;
   }
 }

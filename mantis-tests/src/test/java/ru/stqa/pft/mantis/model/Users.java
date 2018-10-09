@@ -27,10 +27,10 @@ public class Users extends ForwardingSet<UserData> {
 
     public Set<UserData> withoutUser(Set<UserData> users, int id) {
         Set<UserData> usersResult = new HashSet<>();
-        for (UserData user : users)
+        for (UserData user : users) {
             if (id != user.getId())
                 usersResult.add(user);
-
+        }
         return usersResult;
     }
 }

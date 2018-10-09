@@ -1,6 +1,5 @@
 package ru.stqa.pft.mantis.tests;
 
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -9,7 +8,6 @@ import ru.stqa.pft.mantis.model.UserData;
 import ru.stqa.pft.mantis.model.Users;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 

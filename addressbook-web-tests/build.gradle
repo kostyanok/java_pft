@@ -15,7 +15,7 @@ dependencies {
 
 }
 
-task testGroups (type: Test) {
+task testGroups(type: Test) {
     useTestNG {
         suites 'scr/test/resources/testng-groups.xml'
     }
@@ -26,7 +26,7 @@ task testGroups (type: Test) {
         systemProperty 'target', "${target}"
     }
 }
-task testContacts (type: Test) {
+task testContacts(type: Test) {
     useTestNG {
         suites 'scr/test/resources/testng-contacts.xml'
     }
@@ -35,6 +35,10 @@ task testContacts (type: Test) {
     }
     if (project.hasProperty('target')) {
         systemProperty 'target', "${target}"
+    }
+
+    test{
+        useTestNG()
     }
 }
 

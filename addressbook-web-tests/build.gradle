@@ -36,11 +36,11 @@ task testContacts(type: Test) {
     if (project.hasProperty('target')) {
         systemProperty 'target', "${target}"
     }
+}
 
     test{
         useTestNG()
     }
-}
 
 
 

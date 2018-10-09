@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
+import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
 
 import java.util.ArrayList;
@@ -83,19 +84,15 @@ public class ContactHelper extends BaseHelper {
     contactCache = null;
     closeAlert();
   }
-  public void addToGroup(ContactData contact) {
+  public void addToGroup(ContactData contact, GroupData group) {
     downloadAllContacts();
     contactSelectionById(contact.getId());
-    new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(contact.getGroups().iterator().next().getName());
+    new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(group.getName());
     click(By.name("add"));
     contactCache = null;
   }
-  public void removeFromGroup(ContactData contact, Groups groups) {
-    new Select(wd.findElement(By.name("group"))).selectByVisibleText(groups.iterator().next().getName());
-    if (!isThereAContact()) {
-      addToGroup(contact);
-      wd.findElement(By.xpath("//a[@href='./?group=" + groups.iterator().next().getId() + "']" )).click();
-    }
+  public void removeFromGroup(ContactData contact, GroupData group) {
+    new Select(wd.findElement(By.name("group"))).selectByVisibleText(group.getName());
     contactSelectionById(contact.getId());
     click(By.name("remove"));
     contactCache = null;

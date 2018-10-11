@@ -3,6 +3,8 @@ package ru.stqa.pft.mantis.pft.sandbox;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.awt.*;
+
 public class PointTests {
 
     @Test

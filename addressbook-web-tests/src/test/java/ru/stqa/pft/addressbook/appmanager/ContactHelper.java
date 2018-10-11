@@ -89,7 +89,7 @@ public class ContactHelper extends BaseHelper {
     contactSelectionById(contact.getId());
     new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(group.getName());
     click(By.name("add"));
-    contactCache = null;
+    navigationHelper.HomePage();
   }
   public void removeFromGroup(ContactData contact, GroupData group) {
     new Select(wd.findElement(By.name("group"))).selectByVisibleText(group.getName());

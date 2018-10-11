@@ -4,20 +4,31 @@
     <lastname>lastname 0</lastname>
     <mobilePhoneNumber>+380999930170</mobilePhoneNumber>
     <email>test0@gmail.com</email>
-    <photo>src\test\resources\cropped-brave_icon_512x.png</photo>
+    <group>test2</group>
+    <photo>src/test/resources/cropped-brave_icon_512x.png</photo>
   </contact>
   <contact>
     <firstname>firstname 1</firstname>
     <lastname>lastname 1</lastname>
     <mobilePhoneNumber>+380999930171</mobilePhoneNumber>
     <email>test1@gmail.com</email>
-    <photo>src\test\resources\cropped-brave_icon_512x.png</photo>
+    <group>test2</group>
+    <photo>src/test/resources/cropped-brave_icon_512x.png</photo>
   </contact>
   <contact>
     <firstname>firstname 2</firstname>
     <lastname>lastname 2</lastname>
     <mobilePhoneNumber>+380999930172</mobilePhoneNumber>
     <email>test2@gmail.com</email>
-    <photo>src\test\resources\cropped-brave_icon_512x.png</photo>
+    <group>test1</group>
+    <photo>src/test/resources/cropped-brave_icon_512x.png</photo>
+  </contact>
+  <contact>
+    <firstname>firstname 3</firstname>
+    <lastname>lastname 3</lastname>
+    <mobilePhoneNumber>+380999930173</mobilePhoneNumber>
+    <email>test3@gmail.com</email>
+    <group>test2</group>
+    <photo>src/test/resources/cropped-brave_icon_512x.png</photo>
   </contact>
 </list>

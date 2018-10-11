@@ -7,6 +7,9 @@ import ru.stqa.pft.addressbook.model.Contacts;
 import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Random;
 import java.util.Set;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -28,32 +31,20 @@ public class AddContactToGroupTest extends TestBase {
   @Test
   public void testAddContactToGroup() {
     app.goTo().HomePage();
+    Random r = new Random();
     Contacts contacts = app.db().contacts();
     Groups groups = app.db().groups();
     ContactData selectedContact = contacts.iterator().next();
     GroupData group = groups.iterator().next();
-    ContactData contact = new ContactData()
-            .withId(selectedContact.getId()).withFirstname(selectedContact.getFirstname()).withLastname(selectedContact.getLastname())
-            .withAddress1(selectedContact.getAddress()).withMobilePhoneNumber(selectedContact.getMobilePhoneNumber())
-            .withHomePhoneNumber(selectedContact.getHomePhoneNumber()).withWorkPhoneNumber(selectedContact.getWorkPhoneNumber())
-            .withEmail(selectedContact.getEmail()).withEmail2(selectedContact.getEmail2())
-            .inGroup(group);
-    Set<GroupData> before = contact.getGroups();
-    if (contact.getGroups().size() == groups.size()){
+    Set<GroupData> before = selectedContact.getGroups();
+    if (selectedContact.getGroups().size() == groups.size()) {
       app.goTo().groupPage();
-      GroupData newGroup = new GroupData().withName("test3");
-      app.group().create(newGroup);
-      app.goTo().HomePage();
-      app.contact().addToGroup(contact, newGroup);
-    }else{
-      for(int i = 0; i < contact.getGroups().size(); i++){
-        if (contact.getGroups().iterator().next().getId() != group.getId()){
-          app.contact().addToGroup(contact, group);
-        }
-      }
+      group = new GroupData().withName(String.format("test%s", r.nextInt()));
+      app.group().create(group);
     }
     app.goTo().HomePage();
-    Set<GroupData> after = contact.getGroups();
+    app.contact().addToGroup(selectedContact, group);
+    Set<GroupData> after = selectedContact.getGroups();
     assertThat(after, equalTo(new Groups(before).withAdded(group)));
   }
 }

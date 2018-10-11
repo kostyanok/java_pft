@@ -7,9 +7,7 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.File;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @XStreamAlias("contact")
 @Entity
@@ -87,12 +85,13 @@ public class ContactData {
             Objects.equals(mobilePhoneNumber, that.mobilePhoneNumber) &&
             Objects.equals(workPhoneNumber, that.workPhoneNumber) &&
             Objects.equals(email, that.email) &&
-            Objects.equals(email2, that.email2);
+            Objects.equals(email2, that.email2) &&
+            Objects.equals(photo, that.photo);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, firstname, lastname, address, homePhoneNumber, mobilePhoneNumber, workPhoneNumber, email, email2);
+    return Objects.hash(id, firstname, lastname, address, homePhoneNumber, mobilePhoneNumber, workPhoneNumber, email, email2, photo);
   }
 
   public int getId() {
@@ -211,7 +210,7 @@ public class ContactData {
 
 
   public ContactData withAllAddresses(String allAddresses) {
-       this.allAddresses = allAddresses;
+    this.allAddresses = allAddresses;
     return this;
   }
 
@@ -228,6 +227,7 @@ public class ContactData {
     groups.add(group);
     return this;
   }
+
   public ContactData fromGroup(GroupData group) {
     groups.remove(group);
     return this;

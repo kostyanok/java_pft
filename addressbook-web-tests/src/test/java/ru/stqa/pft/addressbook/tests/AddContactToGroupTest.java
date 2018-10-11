@@ -23,11 +23,12 @@ public class AddContactToGroupTest extends TestBase {
       app.contact().create(new ContactData().withFirstname("firstname").withLastname("lastname").withAddress1("address").withHomePhoneNumber("+38022746489").withMobilePhoneNumber("+3859568272").withEmail("test@gmail.com")/*.withGroup("test1")*/, true);
     }
     app.goTo().groupPage();
-    if(app.group().all().size() == 0){
+    if (app.group().all().size() == 0) {
       app.group().create(new GroupData().withName("test1"));
     }
 
   }
+
   @Test
   public void testAddContactToGroup() {
     app.goTo().HomePage();

@@ -12,6 +12,7 @@ import ru.stqa.pft.addressbook.model.Groups;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class ContactHelper extends BaseHelper {
   NavigationHelper navigationHelper = new NavigationHelper(wd);
@@ -85,6 +86,7 @@ public class ContactHelper extends BaseHelper {
     closeAlert();
   }
   public void addToGroup(ContactData contact, GroupData group) {
+    navigationHelper.HomePage();
     downloadAllContacts();
     contactSelectionById(contact.getId());
     new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(group.getName());

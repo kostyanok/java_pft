@@ -36,17 +36,23 @@ public class AddContactToGroupTest extends TestBase {
     Contacts contacts = app.db().contacts();
     Groups groups = app.db().groups();
     ContactData selectedContact = contacts.iterator().next();
-    GroupData group = groups.iterator().next();
+    GroupData group = new GroupData();
     Set<GroupData> before = selectedContact.getGroups();
     if (selectedContact.getGroups().size() == groups.size()) {
       app.goTo().groupPage();
       group = new GroupData().withName(String.format("test%s", r.nextInt()));
       app.group().create(group);
+    } else {
+      for (GroupData newGroup : groups) {
+        if (newGroup.getId() != selectedContact.getGroups().iterator().next().getId()) {
+          group = newGroup;
+          break;
+        }
+      }
     }
-    app.goTo().HomePage();
     app.contact().addToGroup(selectedContact, group);
-    Set<GroupData> after = selectedContact.getGroups();
-    assertThat(after, equalTo(new Groups(before).withAdded(group)));
+    Set<GroupData> after = app.db().contacts().iterator().next().withId(selectedContact.getId()).getGroups();
+    assertThat(after, equalTo(new Groups(before).withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
   }
 }
 
